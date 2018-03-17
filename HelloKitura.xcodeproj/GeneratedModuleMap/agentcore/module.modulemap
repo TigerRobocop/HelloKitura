@@ -1,0 +1,4 @@
+module agentcore {
+    umbrella "/Users/aluno/Desktop/LIV_DEVAPPS/HelloKitura/.build/checkouts/omr-agentcore-1826539389957424207/src/agentcore/include"
+    export *
+}
