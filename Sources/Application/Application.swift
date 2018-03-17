@@ -56,21 +56,29 @@ public class App {
         
         
         // EDIT
-        
-        /*
         router.put("/punch/:id") {
-            
             request, response, next in
             if let chaveStr = request.parameters["id"]
             , let chave = Int(chaveStr)
                 , let data = request.body?.asJSON {
-                
+                self.compras[chave] = data
+                response.send(JSON(data).description)
             }
-            
+            next()
         }
  
+        
+        //DELETE
+        router.delete("/punch/:id") {
+            request, response, next in
+            if let chaveStr = request.parameters["id"]
+            , let chave = Int(chaveStr)
+                , let data = self.compras[chave] {
+                self.compras[chave] = nil
+                response.send(JSON(data).description)
+            }
+        }
  
- */
         // Handle HTTP GET requests to / index
         router.get("/") {
             request, response, next in
