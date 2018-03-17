@@ -47,8 +47,9 @@ public class App {
                 let chave = self.indice
                 self.indice += 1
                 data["id"] = chave
+                
                 self.compras[chave] = data
-                 response.send(JSON(data).description)
+                response.send(JSON(data).description)
             }
             next()
             
@@ -83,7 +84,7 @@ public class App {
         // INDEX
         router.get("/") {
             request, response, next in
-            response.send("Hello, World!")
+            response.send("Hello, Kitura!")
             next()
         }
     }
