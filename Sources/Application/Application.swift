@@ -29,7 +29,7 @@ public class App {
         initializeHealthRoutes(app: self)
         
         // GET ALL
-        router.get("/punches") { // <--------------
+        router.get("/punches") {
             request, response, next in
             var result: [Any] = []
             for valor in self.compras.values {
@@ -77,9 +77,10 @@ public class App {
                 self.compras[chave] = nil
                 response.send(JSON(data).description)
             }
+            next()
         }
  
-        // Handle HTTP GET requests to / index
+        // INDEX
         router.get("/") {
             request, response, next in
             response.send("Hello, World!")
