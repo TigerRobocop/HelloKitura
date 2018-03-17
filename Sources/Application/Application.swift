@@ -43,12 +43,12 @@ public class App {
         // INSERT NEW
         router.post("/punch") {
             request, response, next in
-            if var data = request.body?.asJSON {
+            if let data = request.body?.asJSON,
+                let compra = Punch(json: data) {
                 let chave = self.indice
                 self.indice += 1
-                data["id"] = chave
-                
-                self.compras[chave] = data
+                compra.id = chave
+                self.compras[chave] = compra
                 response.send(JSON(data).description)
             }
             next()
